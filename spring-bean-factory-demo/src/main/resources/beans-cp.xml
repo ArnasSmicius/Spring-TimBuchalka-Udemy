@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="myorg" class="com.timbuchalka.springdemo.Organization"
+		factory-method="createInstance">
+		<constructor-arg value="BMW" name="companyName"></constructor-arg>
+		<constructor-arg value="1929" name="yearOfIncorporation"></constructor-arg>
+	</bean>
+	<bean id="myorg2" class="com.timbuchalka.springdemo.Organization"
+		factory-method="getInstance" factory-bean="organizationFactory">
+		<constructor-arg value="BMW" name="companyName"></constructor-arg>
+		<constructor-arg value="1929" name="yearOfIncorporation"></constructor-arg>
+	</bean>
+	<bean id="organizationFactory"
+		class="com.timbuchalka.springdemo.OrganizationFactory">
+	</bean>
+</beans>
