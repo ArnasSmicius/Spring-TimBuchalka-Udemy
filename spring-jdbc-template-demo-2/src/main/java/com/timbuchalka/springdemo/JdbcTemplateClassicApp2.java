@@ -32,6 +32,23 @@ public class JdbcTemplateClassicApp2 {
 		DaoUtils.printOrganizationCount(dao.getAllOrganizations(), DaoUtils.createOperation);
 		DaoUtils.printOrganizations(dao.getAllOrganizations(), DaoUtils.readOperation);
 		
+		// Get a sinle organization
+		Organization org2 = dao.getOrganization(1);
+		DaoUtils.printOrganization(org2, DaoUtils.readOperation);
+		
+		// Updating slogan for an organization
+		Organization org3 = dao.getOrganization(2);
+		org3.setSlogan("We build ** awesome ** driving machines!");
+		boolean isUpdated = dao.update(org3);
+		DaoUtils.printSuccessFailure(DaoUtils.updateOperation, isUpdated);
+		DaoUtils.printOrganization(dao.getOrganization(2), DaoUtils.updateOperation);
+		
+		// Delete an organization
+		DaoUtils.printOrganizations(dao.getAllOrganizations(), DaoUtils.deleteOperation);
+		boolean isDeleted = dao.delete(dao.getOrganization(3));
+		DaoUtils.printSuccessFailure(DaoUtils.deleteOperation, isDeleted);
+		DaoUtils.printOrganizations(dao.getAllOrganizations(), DaoUtils.deleteOperation);
+		
 		// Cleanup
 //		dao.cleanup();
 		DaoUtils.printOrganizationCount(dao.getAllOrganizations(), DaoUtils.cleanupOperation);

@@ -21,6 +21,10 @@ public class DaoUtils {
 		}
 	}
 	
+	public static void printOrganization(Organization org, String operation) {
+		System.out.println("\n******Printing organization after invoking " + operation + "*******\n" + org);
+	}
+	
 	public static void printSuccessFailure(String operation, boolean param) {
 		if(param)
 			System.out.println("\nOperation " + operation + " successful");
