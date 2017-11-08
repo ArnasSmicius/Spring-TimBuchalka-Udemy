@@ -16,11 +16,11 @@ public class WelcomeController {
 	@Autowired
 	private GenericWelcomeService welcomeService;
 	
-	@RequestMapping("/")
+	@RequestMapping
 	public String doWelcome(Model model) {
 		
 		// 1. Retrieving processed data
-		WelcomeService welcomeService = new WelcomeService();
+//		WelcomeService welcomeService = new WelcomeService();
 		List<String> welcomeMessage = welcomeService.getWelcomeMessage("Arnas Smicius");
 		
 		// 2. Add data to the model
