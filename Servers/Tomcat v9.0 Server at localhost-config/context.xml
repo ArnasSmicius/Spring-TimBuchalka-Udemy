@@ -26,4 +26,8 @@
     <!--
     <Manager pathname="" />
     -->
+    <Resource name="jdbc/spring_db" auth="Container" type="javax.sql.DataSource"
+    		  maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+    		  username="devuser" password="TimBuchalka1793!" driverClassName="com.mysql.cj.jdbc.Driver"
+    		  url="jdbc:mysql://localhost:3306/spring_db?useSSL=false"/>
 </Context>
