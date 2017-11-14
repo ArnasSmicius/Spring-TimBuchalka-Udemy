@@ -21,7 +21,7 @@ public class OrganizationController {
 		return "listOrganization1";
 	}
 	
-	@RequestMapping
+	@RequestMapping("/service")
 	public String listOrganizationUsingService(Model model) {
 		List<Organization> orgs = organizationService.getOrgList();
 		model.addAttribute("orgList", orgs);
