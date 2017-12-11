@@ -29,13 +29,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		return dataSource;
 	}
 	
-	@Bean
-	public RequestMappingHandlerMapping RequestMappingHandlerMapping() {
-		RequestMappingHandlerMapping rmhm = new RequestMappingHandlerMapping();
-		rmhm.setUseSuffixPatternMatch(false);
-		rmhm.setUseTrailingSlashMatch(false);
-		return rmhm;
-	}
+//	@Bean
+//	public RequestMappingHandlerMapping RequestMappingHandlerMapping() {
+//		RequestMappingHandlerMapping rmhm = new RequestMappingHandlerMapping();
+//		rmhm.setUseSuffixPatternMatch(false);
+//		rmhm.setUseTrailingSlashMatch(false);
+//		return rmhm;
+//	}
 	
 	@Bean
 	public UrlBasedViewResolver UrlBasedViewResolver() {
