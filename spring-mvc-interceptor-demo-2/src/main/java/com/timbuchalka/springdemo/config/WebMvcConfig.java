@@ -2,6 +2,7 @@ package com.timbuchalka.springdemo.config;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import com.timbuchalka.springdemo.interceptors.ExecutionTimerInterceptor;
 import com.timbuchalka.springdemo.interceptors.HeaderInterceptor;
 
 @Configuration
@@ -21,6 +23,12 @@ import com.timbuchalka.springdemo.interceptors.HeaderInterceptor;
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
+	@Autowired
+	private HeaderInterceptor headerInterceptor;
+	
+	@Autowired
+	private ExecutionTimerInterceptor executionTimerInterceptor;
+	
 	@Bean
 	public DataSource dataSource() {
 		final JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
@@ -28,14 +36,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		DataSource dataSource = dsLookup.getDataSource("jdbc/spring_db");
 		return dataSource;
 	}
-	
-//	@Bean
-//	public RequestMappingHandlerMapping RequestMappingHandlerMapping() {
-//		RequestMappingHandlerMapping rmhm = new RequestMappingHandlerMapping();
-//		rmhm.setUseSuffixPatternMatch(false);
-//		rmhm.setUseTrailingSlashMatch(false);
-//		return rmhm;
-//	}
 	
 	@Bean
 	public UrlBasedViewResolver UrlBasedViewResolver() {
@@ -53,6 +53,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new HeaderInterceptor());
+		registry.addInterceptor(headerInterceptor);
+		registry.addInterceptor(executionTimerInterceptor).addPathPatterns("/location");
 	}
 }

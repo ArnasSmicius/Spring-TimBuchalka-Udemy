@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="JavaSpringDemo" path="/JavaSpringDemo" reloadable="true" source="org.eclipse.jst.jee.server:JavaSpringDemo"/><Context docBase="spring-mvc-demo-1" path="/spring-mvc-demo-1" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-demo-1"/><Context docBase="spring-bean-web-scope-demo" path="/spring-bean-web-scope-demo" reloadable="true" source="org.eclipse.jst.jee.server:spring-bean-web-scope-demo"/><Context docBase="spring-mvc-java-config-demo" path="/spring-mvc-java-config-demo" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-java-config-demo"/><Context docBase="spring-mvc-jndi-demo" path="/spring-mvc-jndi-demo" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-jndi-demo"/><Context docBase="spring-mvc-handler-mapping-adapter-demo" path="/spring-mvc-handler-mapping-adapter-demo" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-handler-mapping-adapter-demo"/><Context docBase="spring-mvc-interceptor-demo-1" path="/spring-mvc-interceptor-demo-1" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-interceptor-demo-1"/></Host>
+      <Context docBase="spring-mvc-interceptor-demo-2" path="/spring-mvc-interceptor-demo-2" reloadable="true" source="org.eclipse.jst.jee.server:spring-mvc-interceptor-demo-2"/></Host>
     </Engine>
   </Service>
 </Server>
