@@ -38,6 +38,18 @@
 			<input type="text" name="orgName" placeholder="Enter organization name" size="40"/>
 			<input type="submit" value="Submit"/>
 		</form>
+		<br/>
+		<form action="test2">
+			<h3>Test 2: Testing @RequestMapping 'method' attribute</h3>
+			<label id="organization-name">Organization Name</label>
+			<input type="text" name="orgName" placeholder="Enter organization name" size="40"/>
+			<input type="submit" value="Submit"/>
+		</form>
+		<br/>
+		<form action="test3">
+			<h3>Test 3: Testing @RequestMapping fallback feature</h3>
+			<input type="submit" value="Submit"/>
+		</form>
 	</div>
 </body>
 </html>
