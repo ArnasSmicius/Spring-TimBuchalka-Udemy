@@ -50,6 +50,20 @@
 			<h3>Test 3: Testing @RequestMapping fallback feature</h3>
 			<input type="submit" value="Submit"/>
 		</form>
+		<br/>
+		<form action="test4">
+			<h3>Test 4: Testing @RequestParam 'defaultValue' attribute</h3>
+			<label id="organization-name">Organization Name</label>
+			<input type="text" name="orgName" placeholder="Enter organization name" size="40"/>
+			<input type="submit" value="Submit"/>
+		</form>
+		<br/>
+		<form action="test5">
+			<h3>Test 5: Testing @RequestParam without 'name' or 'value' attributes</h3>
+			<label id="organization-name">Organization Name</label>
+			<input type="text" name="orgName" placeholder="Enter organization name" size="40"/>
+			<input type="submit" value="Submit"/>
+		</form>
 	</div>
 </body>
 </html>
