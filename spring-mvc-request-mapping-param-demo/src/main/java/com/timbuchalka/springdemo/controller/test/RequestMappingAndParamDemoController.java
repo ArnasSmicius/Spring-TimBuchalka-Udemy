@@ -1,5 +1,7 @@
 package com.timbuchalka.springdemo.controller.test;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -85,6 +87,39 @@ public class RequestMappingAndParamDemoController {
 	public String requestMappingAndParamTest6Subtest2(@RequestParam String empCount, Model model) {
 		model.addAttribute("orgName", empCount);
 		model.addAttribute("testSerial", "test6-subtest2");
+		return "requestMappingAndParamResults2";
+	}
+
+	// test 6, subtest 3: Testing removal of @RequestMapping with multiple request
+	// params
+	@RequestMapping(value = "/test6/subtest3", method = RequestMethod.GET, params = { "orgName", "empCount" })
+	public String requestMappingAndParamTest6Subtest3(@RequestParam String orgName, @RequestParam String empCount,
+			Model model) {
+		model.addAttribute("orgName", orgName);
+		model.addAttribute("empCount", empCount);
+		model.addAttribute("testSerial", "test6-subtest3");
+		return "requestMappingAndParamResults2";
+	}
+
+	// test 6, subtest 4: Testing with multiple request params and @RequestParam
+	// with single param
+	@RequestMapping(value = "/test6/subtest4", method = RequestMethod.GET, params = { "orgName", "empCount" })
+	public String requestMappingAndParamTest6Subtest4(@RequestParam String orgName, Model model) {
+		model.addAttribute("orgName", orgName);
+		model.addAttribute("testSerial", "test6-subtest4");
+		return "requestMappingAndParamResults2";
+	}
+
+	// test 7 & 8: Testing @RequestParam with multiple request URI's
+	@RequestMapping(value = {"/test7", "/test8"}, method = RequestMethod.GET)
+	public String requestMappingAndParamTest7and8(@RequestParam String orgName, Model model, HttpServletRequest request) {
+		model.addAttribute("orgName", orgName);
+		LOGGER.info(request.getRequestURL().toString());
+		if (request.getRequestURL().toString().contains("test7")) {
+			model.addAttribute("testSerial", "test7");
+		} else {
+			model.addAttribute("testSerial", "test8");
+		}
 		return "requestMappingAndParamResults2";
 	}
 
