@@ -41,6 +41,23 @@
 		
 		${testdata1B} ${testdata2}
 		<hr/>
+		<form:form action="modelAttributeTest5">
+			<h3>test 5: Testing @ModelAttribute annotation with 'value' attribute and default binding</h3>
+			<table>
+				<tr>
+					<td><form:label path="city">City Name</form:label></td>
+					<td><form:input path="city"/></td>
+				</tr>
+				<tr>
+					<td><form:label path="zipCode">Postal Code</form:label></td>
+					<td><form:input path="zipCode"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Display Address"/></td>
+				</tr>
+			</table>
+		</form:form>
 		
 	</div>
 </body>
