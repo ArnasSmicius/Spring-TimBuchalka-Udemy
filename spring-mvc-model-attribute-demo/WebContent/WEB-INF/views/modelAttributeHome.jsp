@@ -41,7 +41,7 @@
 		
 		${testdata1B} ${testdata2}
 		<hr/>
-		<form:form action="modelAttributeTest5" modelAttribute="anAddress">
+		<form:form action="test5" modelAttribute="anAddress">
 			<h3>test 5: Testing @ModelAttribute annotation with 'value' attribute and default binding</h3>
 			<table>
 				<tr>

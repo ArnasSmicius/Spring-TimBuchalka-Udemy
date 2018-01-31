@@ -96,7 +96,7 @@ public class ModelAttributeDemoController {
 	// Test 5: Testing the @ModelAttribute with 'value' attribute and default binding
 	@RequestMapping(value="/test5", method=RequestMethod.POST)
 	public String modelAttributeTest5(@ModelAttribute(value="anAddress") Address anAddress, ModelMap model) {
-		model.addAttribute("testdata5", anAddress.getCity());
+		model.addAttribute("testdata5A", anAddress.getCity());
 		model.addAttribute("testdata5B", anAddress.getZipCode());
 		return "modelAttributeTest";
 	}
