@@ -92,13 +92,22 @@ public class ModelAttributeDemoController {
 		LOGGER.info("INSIDE modelAttributeTest4");
 		return new Address("Sydney", "2000");
 	}
-	
-	// Test 5: Testing the @ModelAttribute with 'value' attribute and default binding
-	@RequestMapping(value="/test5", method=RequestMethod.POST)
-	public String modelAttributeTest5(@ModelAttribute(value="anAddress") Address anAddress, ModelMap model) {
+
+	// Test 5: Testing the @ModelAttribute with 'value' attribute and default
+	// binding
+	@RequestMapping(value = "/test5", method = RequestMethod.POST)
+	public String modelAttributeTest5(@ModelAttribute(value = "anAddress") Address anAddress, ModelMap model) {
 		model.addAttribute("testdata5A", anAddress.getCity());
 		model.addAttribute("testdata5B", anAddress.getZipCode());
 		return "modelAttributeTest";
+	}
+
+	// Test 6: Test to determine the nature of how the @ModelAttribute(on method)
+	// and @RequestMapping work with no explicit logical view name
+	@RequestMapping(value="/modelAttributeTest")
+	@ModelAttribute("testdata6")
+	public Address modelAttributeTest6() {
+		return new Address("Canberra", "2600");
 	}
 
 }
